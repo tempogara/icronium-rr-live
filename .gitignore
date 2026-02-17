@@ -1,1 +1,51 @@
+# -----------------------------
+# Gradle
+# -----------------------------
+.gradle/
 build/
+**/build/
+bin/
+
+# Gradle wrapper (da committare)
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# -----------------------------
+# Eclipse / Buildship
+# -----------------------------
+.classpath
+.project
+.settings/
+*.launch
+.factorypath
+
+# Eclipse workspace (se finisce dentro per errore)
+.metadata/
+.recommenders/
+
+# -----------------------------
+# Java / JVM
+# -----------------------------
+*.class
+*.log
+hs_err_pid*
+*.hprof
+
+# -----------------------------
+# macOS
+# -----------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# -----------------------------
+# Editor temp
+# -----------------------------
+*~
+*.swp
+
+/bin/

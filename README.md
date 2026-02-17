@@ -1,4 +1,4 @@
-# IP Downloader (JavaFX) — Gradle (wrapper-like)
+# ICRONIUM RR Live Forwarder
 
 Questo progetto è importabile in Eclipse/IntelliJ/VS Code come **Gradle project**.
 
