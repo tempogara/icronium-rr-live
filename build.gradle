@@ -39,14 +39,30 @@ tasks.register('packageApp', Exec) {
 
 	dependsOn build
 
+	def javafxLib = configurations.runtimeClasspath
+			.filter { it.name.contains("javafx") }
+			.asPath
+
 	commandLine = [
 		"jpackage",
 		"--type", "app-image",
 		"--input", "${buildDir}/libs",
 		"--dest", "${buildDir}/dist",
-		"--name", "IP Downloader",
-		"--main-jar", "${jar.archiveFileName.get()}",
-		"--main-class", "com.example.ipdownloader.MainApp",
-		"--java-options", "-Xmx512m"
+		"--name", "ICRONIUM-RR-Forworder",
+		"--main-jar", jar.archiveFileName.get(),
+		"--main-class", "it.icron.icronium.live.MainApp",
+		"--java-options", "-Xmx512m",
+
+		// IMPORTANTE: necessario per JavaFX
+		"--module-path", javafxLib,
+
+		// Include tutti i moduli disponibili (crypto inclusa)
+		"--add-modules", "ALL-MODULE-PATH",
+
+		// JVM options utili per HTTPS su Windows
+		"--java-options", "-Dfile.encoding=UTF-8",
+		"--java-options", "-Dhttps.protocols=TLSv1.3,TLSv1.2",
+		"--java-options", "-Djdk.tls.client.protocols=TLSv1.3,TLSv1.2"
+		
 	]
 }
